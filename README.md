@@ -16,10 +16,12 @@ Dentro de tu `wally.toml` vas a añadir en `[dependencies]` el link de descarga 
 ``` toml
 StateSignal = "novadrianius/statesignal@1.0.2"
 ```
+y dentro de la terminal, ejecuta el comando:
+``` text
+wally install
+```
 
 ## Inicio
-Primero, crea una carpeta dentro de `ReplicatedStorage` y llámala **"Packages"**. Dentro de esta carpeta guardarás todas las librerías que puedas usar en cualquier proyecto y donde se puedan usar tanto en el cliente como en el servidor.
-
 `StateSignal` es una librería que puedes usar tanto en el cliente como en el servidor, por eso la añadiremos a `Packages` dentro de `ReplicatedStorage`.
 
 En un script (ya sea de servidor o de cliente), vamos a requerir el módulo de `StateSignal`.
@@ -132,7 +134,7 @@ signal:Update(3)
 A diferencia de `:Listen()`, `:Once()` solo se ejecuta una vez.
 
 ### `:Run()`
-Este método es similar a `:Listen()`, ya que se ejecuta con cada llamada a `:Update()`. Sin embargo, este método ejecuta un callback cuando se llama y cuando se usa `:Update()`
+Este método es similar a `:Listen()`, ya que se ejecuta con cada llamada a `:Update()`. Sin embargo, este método ejecuta un callback cuando apenas se llama, y cuando se usa `:Update()`
 ``` lua
 local signal = StateSignal.new(0)
 
@@ -164,7 +166,7 @@ Mensaje: Hola
 ```
 
 ### `:Clear()`
-Desconecta todos los listeners creados con `:Listen()`, `:Once()` o `:Run()` al instante.
+Desconecta todos los listeners creados con `:Listen()`, `:Once()` y/o `:Run()` al instante.
 ``` lua
 signal:Listen(callback)
 signal:Once(callback2)
