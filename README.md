@@ -3,7 +3,19 @@
 **StateSignal** es una librería que proporciona una solución de estado reactivo. Es ultra ligera al evitar uso de instanciamiento en el `DataModel` y puede comportarse como un `ValueBase`: Le asignas un valor, puedes modificarlo y puedes escuchar los cambios en el valor.
 
 ---
-### Puedes descargar StateSignal [aquí](https://create.roblox.com/store/asset/95867414750073/StateSignal).
+## Instalación
+
+Puedes descargar el modelo de StateSignal **[aquí (Roblox)](https://create.roblox.com/store/asset/95867414750073/StateSignal)**.
+1. Descargar el modelo de StateSignal en el link anterior.
+2. Abrir tu proyecto de Roblox Studio donde deseas implementar StateSignal.
+3. Dentro de `ReplicatedStorage` crea una carpeta y llámala "Packages".
+4. Dentro de tu carpeta de `Packages`, inserta el modelo descargado de StateSignal (el cual es un solo `ModuleScript`).
+
+## Instalación en Wally
+Dentro de tu `wally.toml` vas a añadir en `[dependencies]` el link de descarga de StateSignal.
+``` toml
+StateSignal = "novadrianius/statesignal@1.0.2"
+```
 
 ## Inicio
 Primero, crea una carpeta dentro de `ReplicatedStorage` y llámala **"Packages"**. Dentro de esta carpeta guardarás todas las librerías que puedas usar en cualquier proyecto y donde se puedan usar tanto en el cliente como en el servidor.
