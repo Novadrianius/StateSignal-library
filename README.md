@@ -116,6 +116,36 @@ Como se puede ver, el 100 no se imprimió, ya que el método `:Listen()` se desc
 
 ---
 ## Otros métodos
+
+### `:UpdateByCallback()`
+Te permite actualizar el valor de un `StateSignal` por medio de una `function` (callback), lo que hace posible modificar el valor por medio de operaciones y otros procesos que pueda realizar tu callback.
+
+El callback lleva como parámetro el valor actual de tu signal.
+``` lua
+local signal = StateSignal.new(0)
+
+signal:Listen(function(newValue)
+    print("New value:", newValue)
+end)
+
+for i = 1, 3 do
+    signal:UpdateByCallback(function(value)
+        return value + 1 -- Suma +1 al valor actual del signal
+    end)
+end
+
+signal:UpdateByCallback(function(value)
+    return value * 100 -- Multiplica X100 el valor actual del signal (3 X 100)
+end)
+```
+**Output**
+``` text
+New value: 1
+New value: 2
+New value: 3
+New value: 300
+```
+
 ### `:Once()`
 Ejecuta una sola vez una función (callback) dada (a diferencia de `:Listen()`, no devuelve ninguna función de limpieza, ya que no es necesaria).
 ``` lua
